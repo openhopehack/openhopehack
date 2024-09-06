@@ -1,22 +1,20 @@
 #!/usr/bin/env python3
 # coding=utf-8
 import logging
-import os
 
-from dotenv import load_dotenv
 from waitress import serve
 
 from openhopehack import create_app
+from config import Config  # Add this import
 
 
 def main():
-    load_dotenv()
-
     app = create_app()
+    config = Config()
 
-    app_host = os.getenv("BIND_ADDRESS")
-    app_port = os.getenv("PORT")
-    logging.root.setLevel(os.getenv("LOG_LEVEL", "INFO"))
+    app_host = config.BIND_ADDRESS
+    app_port = config.PORT
+    logging.root.setLevel(config.LOG_LEVEL)
 
     # Start flask app using the built-in webserver if the LOG_LEVEL=DEBUG,
     # otherwise use waitress
