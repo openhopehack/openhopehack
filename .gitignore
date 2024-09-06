@@ -1,0 +1,24 @@
+# VisualStudioCode
+.vscode/*
+
+# OS
+.DS_Store
+
+# Project files
+cover.out
+
+# Python
+__pycache__
+.venv
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+coverage.xml
+
+# tmp files
+.~*
+
+# Secrets
+.env
