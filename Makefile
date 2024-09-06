@@ -15,9 +15,14 @@ setup-venv: ## Create the virtual environment and install dependencies.
 .PHONY: install
 install: setup-venv ## Install the dependencies in the virtual environment.
 
+.PHONY: activate
+activate: ## Activate the virtual environment.
+	@echo "To activate the virtual environment, run:"
+	@echo "source $(VENV_DIR)/bin/activate"
+
 .PHONY: run
 run: ## Run the Flask application.
-	source $(VENV_DIR)/bin/activate && $(VENV_DIR)/bin/python app.py
+	source $(VENV_DIR)/bin/activate && $(VENV_DIR)/bin/python run.py
 
 .PHONY: clean
 clean: ## Remove the virtual environment directory.
@@ -26,5 +31,3 @@ clean: ## Remove the virtual environment directory.
 ##@ Utility targets
 .PHONY: all
 all: setup-venv run ## Set up the environment and run the application.
-
-
