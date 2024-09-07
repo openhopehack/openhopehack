@@ -8,7 +8,7 @@ from openhopehack import create_app
 
 
 def main():
-    app = create_app()
+    app = create_app(Config)
 
     config = Config()
 
