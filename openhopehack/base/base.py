@@ -1,4 +1,6 @@
-from flask import Blueprint, render_template, redirect, url_for
+from datetime import datetime
+
+from flask import Blueprint, render_template, redirect, url_for, request
 from flask import current_app as app
 from flask_dance.contrib.github import github
 from flask_login import (
@@ -9,6 +11,8 @@ from flask_login import (
     current_user,
     login_required,
 )
+
+from .libs.telegram import Telegram
 
 base_bp = Blueprint(
     "base", __name__, template_folder="templates", static_folder="static"
@@ -43,6 +47,25 @@ def test():
     return current_user.username
 
 
+@base_bp.route("/submit-pr", methods=["POST"])
+@login_required
+def submit_pr():
+    pr_url = request.form.get("pr_url")
+    if not pr_url:
+        return redirect(url_for("index"))
+
+    github_username = current_user.username
+    timestamp = datetime.now().isoformat()
+
+    message = f"New PR Submission\n\nGitHub Username: {github_username}\nPR URL: {pr_url}\nTimestamp: {timestamp}"
+    # Send message to Telegram group
+    telegram = Telegram(app.config["TELEGRAM_BOT_TOKEN"], app.logger)
+    if telegram.send_message(app.config["TELEGRAM_CHAT_ID"], message):
+        return redirect(url_for("base.index"))
+    else:
+        return "Failed to send message to Telegram"
+
+
 @base_bp.route("/logout")
 def logout():
     logout_user()
@@ -63,4 +86,4 @@ def github_login():
         login_user(users[user_id])
     else:
         print("Error: ", resp.text)
-    return redirect(url_for("base.test"))
+    return redirect(url_for("base.index"))
