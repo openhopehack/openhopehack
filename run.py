@@ -3,13 +3,13 @@
 import logging
 
 from waitress import serve
-
+from config import Config
 from openhopehack import create_app
-from config import Config  # Add this import
 
 
 def main():
     app = create_app()
+
     config = Config()
 
     app_host = config.BIND_ADDRESS

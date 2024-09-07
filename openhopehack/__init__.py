@@ -1,11 +1,17 @@
+"""Initialize Flask app."""
+
 from flask import Flask
 
 
 def create_app():
-    from . import routes
+    """Create Flask application."""
+    app = Flask(__name__, instance_relative_config=False)
 
-    app = Flask(__name__)
-    # Load app components
-    routes.init_app(app)
+    with app.app_context():
+        # Import parts of our application
+        from .base import base
 
-    return app
+        # Register Blueprints
+        app.register_blueprint(base.base_bp, url_prefix="/")
+
+        return app
