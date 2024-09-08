@@ -13,6 +13,7 @@ from flask_login import (
 )
 
 from .libs.telegram import Telegram
+from .libs.google import Google
 
 base_bp = Blueprint(
     "base", __name__, template_folder="templates", static_folder="static"
@@ -56,6 +57,15 @@ def submit_pr():
 
     github_username = current_user.username
     timestamp = datetime.now().isoformat()
+
+    # save to google sheet
+    google = Google(
+        app.config["GOOGLE_SPREADSHEET_ID"],
+        app.config["GOOGLE_SHEET_RANGE"],
+        app.config["SERVICE_ACCOUNT_FILE_NAME"],
+    )
+
+    google.append_to_sheet([[github_username, pr_url, timestamp]])
 
     message = f"New PR Submission\n\nGitHub Username: {github_username}\nPR URL: {pr_url}\nTimestamp: {timestamp}"
     # Send message to Telegram group
