@@ -1,1 +1,7 @@
+index
 __pycache__
+.idea
+.git
+.github
+.DS_Store
+.venv

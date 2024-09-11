@@ -17,6 +17,8 @@ class Config:
         "TELEGRAM_CHAT_ID", "-4560142138"
     )  # @openhopehack telegram group
     OAUTHLIB_INSECURE_TRANSPORT = os.getenv("OAUTHLIB_INSECURE_TRANSPORT", "0")
-    GOOGLE_SPREADSHEET_ID = os.getenv("GOOGLE_SPREADSHEET_ID")
+    GOOGLE_SPREADSHEET_ID = os.getenv(
+        "GOOGLE_SPREADSHEET_ID", "1TeWnmfktQbqBIIeNk9lkv5vdzD0Innt9LI37Xg0pAMI"
+    )  # https://docs.google.com/spreadsheets/d/1TeWnmfktQbqBIIeNk9lkv5vdzD0Innt9LI37Xg0pAMI/edit?usp=sharing
     SERVICE_ACCOUNT_FILE_NAME = os.getenv("SERVICE_ACCOUNT_FILE_NAME")
     GOOGLE_SHEET_RANGE = os.getenv("GOOGLE_SHEET_RANGE", "Sheet1!A:C")

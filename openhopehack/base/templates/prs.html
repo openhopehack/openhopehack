@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenHopeHack</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.pumpkin.min.css" />
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <style>
+        * {
+            font-family: Vazirmatn, sans-serif !important;
+        }
+        </style>
+</head>
+<body dir="rtl" lang="fa">
+    <header>
+        <nav>
+            <ul>
+              <li><strong>به OpenHopeHack خوش آمدید</strong></li>
+            </ul>
+            <ul>
+             <li><a href="/pr">مشاهده پی‌آرهای ثبت‌شده</a></li>
+              <li><a href="https://github.com/pesarkhobeee/openHopeHack">گیت‌هاب</a></li>
+            </ul>
+          </nav>
+    </header>
+
+    <main class="container">
+        <div class="section">
+            <p>
+                این پروژه یک ابتکار برای تشویق دانش آموزان و دانشجویان جوان در ایران به مشارکت در پروژه‌های اپن سورس و ترویج فرهنگ و ذهنیت متن‌باز است.
+                با حمایت جامعه فنی مهاجر ایرانی، ما قصد داریم با ارائه جوایز کوچک مانند لپ‌تاپ، شور و اشتیاق و همکاری را در بین جوانان با استعداد تقویت کنیم.
+            </p>
+
+        </div>
+        <div class="section">
+            {% if current_user.is_authenticated %}
+            <a href="https://github.com/{{ current_user.username }}" target="_blank">  {{ current_user.username }} شما وارد شده‌اید</a>
+        <form action="/submit-pr" method="POST">
+            <label for="pr_url">لطفا پی‌آر خود را ارسال کنید:</label>
+            <input type="url" id="pr_url" name="pr_url" required>
+            <button type="submit">ثبت</button>
+        </form>
+        <a href="{{ url_for('base.logout') }}">خروج</a>
+    {% else %}
+        <div class="section">
+            <a href="{{ url_for('base.github_login') }}" role="button">ورود به اکانت گیت هاب برای ثبت پی‌آر</a>
+        </div>
+        {% endif %}
+        <p>
+
+        </p>
+        </div>
+        <div class="section">
+            <h2>PRs Submissions</h2>
+            <div class="grid">
+                <a href="https://docs.google.com/spreadsheets/d/1TeWnmfktQbqBIIeNk9lkv5vdzD0Innt9LI37Xg0pAMI" target="_blank">View on Google Sheets</a>
+                <iframe width="100%" height="600" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRrJECt9AtL81xHt_0D3DxMizBCNotBOrTPo0g7Q4MkWyXKmtO8PCeAg_Zmhh67uc4e-YPJtlZbw5fA/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+            </div>
+        </div>
+
+    </main>
+</body>
+</html>

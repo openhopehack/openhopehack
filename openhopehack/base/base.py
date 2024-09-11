@@ -52,28 +52,31 @@ def test():
 @login_required
 def submit_pr():
     pr_url = request.form.get("pr_url")
-    if not pr_url:
-        return redirect(url_for("index"))
+    if pr_url:
+        github_username = current_user.username
+        timestamp = datetime.now().isoformat()
 
-    github_username = current_user.username
-    timestamp = datetime.now().isoformat()
+        # save to google sheet
+        google = Google(
+            app.config["GOOGLE_SPREADSHEET_ID"],
+            app.config["GOOGLE_SHEET_RANGE"],
+            app.config["SERVICE_ACCOUNT_FILE_NAME"],
+        )
 
-    # save to google sheet
-    google = Google(
-        app.config["GOOGLE_SPREADSHEET_ID"],
-        app.config["GOOGLE_SHEET_RANGE"],
-        app.config["SERVICE_ACCOUNT_FILE_NAME"],
-    )
+        google.append_to_sheet([[github_username, pr_url, timestamp]])
 
-    google.append_to_sheet([[github_username, pr_url, timestamp]])
+        message = f"New PR Submission\n\nGitHub Username: {github_username}\nPR URL: {pr_url}\nTimestamp: {timestamp}"
+        # Send message to Telegram group
+        telegram = Telegram(app.config["TELEGRAM_BOT_TOKEN"], app.logger)
+        if telegram.send_message(app.config["TELEGRAM_CHAT_ID"], message):
+            return redirect(url_for("base.pr"))
+        else:
+            return "Failed to send message to Telegram"
 
-    message = f"New PR Submission\n\nGitHub Username: {github_username}\nPR URL: {pr_url}\nTimestamp: {timestamp}"
-    # Send message to Telegram group
-    telegram = Telegram(app.config["TELEGRAM_BOT_TOKEN"], app.logger)
-    if telegram.send_message(app.config["TELEGRAM_CHAT_ID"], message):
-        return redirect(url_for("base.index"))
-    else:
-        return "Failed to send message to Telegram"
+
+@base_bp.route("/pr")
+def pr():
+    return render_template("prs.html")
 
 
 @base_bp.route("/logout")
