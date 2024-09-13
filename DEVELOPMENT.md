@@ -48,18 +48,7 @@ After creating the app, you’ll receive a **Client ID** and **Client Secret**.
 
 ### Step 6: Set Up Environment Variables
 
-- Set the following environment variables in your `.env` file:
-
-```
-LOG_LEVEL=DEBUG
-GITHUB_CLIENT_ID=<your-github-client-id>
-GITHUB_CLIENT_SECRET=<your-github-client-secret>
-GDRIVE_CREDENTIALS=<your-service-account-key-file-name>
-OAUTHLIB_INSECURE_TRANSPORT=1
-GOOGLE_SPREADSHEET_ID = <your-google-spreadsheet-id>
-TELEGRAM_TOKEN = <your-telegram-token>
-TELEGRAM_CHAT_ID = <your-telegram-chat-id>
-```
+- Set the environment variables in your `.env` file by copying the `env.example` file.
 
 ### Step 7: Install pre-commit hooks
 

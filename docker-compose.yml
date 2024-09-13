@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: openhopehack_app
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app
+      - ./path/to/google_service_account_file.json:/app/openhopehack/google_service_account_file.json:ro  # Mount the Google service account fil
+    environment:
+      - FLASK_SECRET_KEY=your_flask_secret_key
+      - GITHUB_CLIENT_ID=your_github_client_id
+      - GITHUB_CLIENT_SECRET=your_github_client_secret
+      - LOG_LEVEL=info
+      - TELEGRAM_BOT_TOKEN=your_telegram_bot_token
+      - TELEGRAM_CHAT_ID=your_telegram_chat_id
+      - OAUTHLIB_INSECURE_TRANSPORT=1
+      - SERVICE_ACCOUNT_FILE_NAME=google_service_account_file.json
+      - GOOGLE_SPREADSHEET_ID=your_google_spreadsheet_id
+      - GOOGLE_SHEET_RANGE=your_google_sheet_range
+    restart: unless-stopped

@@ -1,12 +1,19 @@
+<!-- Open Graph tags -->
+<meta property="og:title" content="OpenHopeHack - Empowering Young Iranian Developers" />
+<meta property="og:description" content="An initiative to encourage young students in Iran to contribute to open-source projects and promote open-source culture." />
+<meta property="og:image" content="https://raw.githubusercontent.com/pesarkhobeee/openHopeHack/base/openhopehack/static/logo.webp" />
+<meta property="og:url" content="https://openhopehack.com/" />
+<meta property="og:type" content="website" />
+
 ### Farsi (فارسی)
 
 # OpenHopeHack
 
-OpenHopeHack یک ابتکار است که هدف آن تشویق دانشجویان جوان در ایران به مشارکت در پروژه‌های اپن سورس و ترویج فرهنگ و ذهنیت متن‌باز است. با حمایت جامعه فنی مهاجر ایرانی، ما قصد داریم با ارائه جوایز کوچک مانند لپ‌تاپ، شور و اشتیاق و همکاری را در بین دانشجویان با استعداد تقویت کنیم.
+OpenHopeHack یک ابتکار است که هدف آن تشویق دانشجویان جوان در ایران به مشارکت در پروژه‌های اپن سورس و ترویج فرهنگ و ذهنیت متن‌باز است. با حمایت جامعه فنی مهاجر ایرانی، ما قصد داریم با ارائه جوایزی مانند لپ‌تاپ، شور و اشتیاق و همکاری را در بین دانشجویان با استعداد تقویت کنیم.
 
 ### ماموریت ما:
 - **ترویج فرهنگ اپن سورس**: ما جوانان را به مشارکت در پروژه‌های اپن سورس تشویق می‌کنیم و به توسعه ذهنیت همکاری و شفافیت که فرهنگ متن‌باز ترویج می‌دهد، کمک می‌کنیم.
-- **حمایت از مشارکت‌کنندگان جوان**: با ارائه جوایز کوچک مانند لپ‌تاپ، به دانشجویان کمک می‌کنیم تا مسیر توسعه خود را ادامه دهند و تجربه عملی در جامعه اپن سورس کسب کنند.
+- **حمایت از مشارکت‌کنندگان جوان**: با ارائه جوایزی مانند لپ‌تاپ، به دانشجویان کمک می‌کنیم تا مسیر توسعه خود را ادامه دهند و تجربه عملی در جامعه اپن سورس کسب کنند.
 
 ### چگونه کار می‌کند:
 1. **ارسال پی‌آر**: توسعه‌دهندگان جوان می‌توانند در هر پروژه اپن سورسی مشارکت کنند و درخواست‌های پی‌آر خود را از طریق پلتفرم ما ارسال کنند. [مشاهده پی‌آرهای ثبت‌شده](https://docs.google.com/spreadsheets/d/1TeWnmfktQbqBIIeNk9lkv5vdzD0Innt9LI37Xg0pAMI).
@@ -26,11 +33,11 @@ OpenHopeHack یک ابتکار است که هدف آن تشویق دانشجوی
 
 # OpenHopeHack
 
-OpenHopeHack is an initiative aimed at encouraging young students in Iran to contribute to open-source projects, while also promoting the culture and mindset of open-source development. With support from the Iranian expat tech community, we aim to foster growth, enthusiasm, and collaboration by providing small rewards such as laptops to talented contributors.
+OpenHopeHack is an initiative aimed at encouraging young students in Iran to contribute to open-source projects, while also promoting the culture and mindset of open-source development. With support from the Iranian expat tech community, we aim to foster growth, enthusiasm, and collaboration by providing rewards such as laptops to talented contributors.
 
 ### Our Mission:
 - **Promote Open-Source Culture**: We inspire young people to engage in open-source projects and develop the collaborative, transparent mindset that open-source culture embodies.
-- **Support Young Contributors**: By offering small rewards like laptops, we empower students to continue their development journeys and gain hands-on experience in the open-source community.
+- **Support Young Contributors**: By offering rewards like laptops, we empower students to continue their development journeys and gain hands-on experience in the open-source community.
 
 ### How It Works:
 1. **Submit a PR**: Young developers can contribute to any open-source project and submit their Pull Requests (PRs) through our platform. [View submitted PRs](https://docs.google.com/spreadsheets/d/1TeWnmfktQbqBIIeNk9lkv5vdzD0Innt9LI37Xg0pAMI).
