@@ -15,7 +15,7 @@ services:
       - FLASK_SECRET_KEY=your_flask_secret_key
       - GITHUB_CLIENT_ID=your_github_client_id
       - GITHUB_CLIENT_SECRET=your_github_client_secret
-      - LOG_LEVEL=info
+      - LOG_LEVEL=INFO
       - TELEGRAM_BOT_TOKEN=your_telegram_bot_token
       - TELEGRAM_CHAT_ID=your_telegram_chat_id
       - OAUTHLIB_INSECURE_TRANSPORT=1
