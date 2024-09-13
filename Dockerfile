@@ -15,9 +15,6 @@ COPY requirements.txt .
 # Install the required Python packages
 RUN pip3 install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the application code to the container
-COPY --chown=openhopehack:openhopehack . .
-
 # Expose the port on which your application runs (if applicable)
 EXPOSE 8080
 
