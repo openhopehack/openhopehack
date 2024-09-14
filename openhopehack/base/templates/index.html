@@ -1,4 +1,6 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %}
+
+{% block content %}
 <div class="section">
   <p>
     این پروژه یک ابتکار برای تشویق دانش‌آموزان و دانشجویان جوان در ایران به
@@ -10,8 +12,7 @@
 <div class="section">
   {% if current_user.is_authenticated %}
   <a href="https://github.com/{{ current_user.username }}" target="_blank">
-    {{ current_user.username }} شما وارد شده‌اید</a
-  >
+    {{ current_user.username }} شما وارد شده‌اید</a>
   <form action="/submit-pr" method="POST">
     <label for="pr_url">لطفا پی‌آر خود را ارسال کنید:</label>
     <input type="url" id="pr_url" name="pr_url" required />
@@ -20,9 +21,7 @@
   <a href="{{ url_for('base.logout') }}">خروج</a>
   {% else %}
   <div class="section">
-    <a href="{{ url_for('base.github_login') }}" role="button"
-      >ورود به اکانتگیت‌هاب برای ثبت پی‌آر</a
-    >
+    <a href="{{ url_for('base.github_login') }}" role="button">ورود به اکانتگیت‌هاب برای ثبت پی‌آر</a>
   </div>
   {% endif %}
 </div>
@@ -56,11 +55,8 @@
         <li>PR مذکور در مخزن اصلی پروژه مرج شده باشد.</li>
         <li>تغییرات ورای مستندات پروژه باشد.</li>
       </ul>
-      <a
-        href="https://docs.google.com/spreadsheets/d/1TeWnmfktQbqBIIeNk9lkv5vdzD0Innt9LI37Xg0pAMI"
-        target="_blank"
-        >مشاهده پی‌آرهای ثبت‌شده</a
-      >.
+      <a href="https://docs.google.com/spreadsheets/d/1TeWnmfktQbqBIIeNk9lkv5vdzD0Innt9LI37Xg0pAMI"
+        target="_blank">مشاهده پی‌آرهای ثبت‌شده</a>.
     </li>
     <li>
       <strong>سیستم جوایز:</strong> حامیان، PRهای ارسال‌شده را بررسی می‌کنند و
@@ -92,11 +88,7 @@
 <div class="section">
   <p>
     برای هرگونه سوال یا بحث، می‌توانید از
-    <a
-      href="https://github.com/pesarkhobeee/openHopeHack/issues"
-      target="_blank"
-      >بخش issueهای پروژه</a
-    >
+    <a href="https://github.com/pesarkhobeee/openHopeHack/issues" target="_blank">بخش issueهای پروژه</a>
     در گیت‌هاب استفاده کنید.
   </p>
 </div>
