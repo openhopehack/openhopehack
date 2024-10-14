@@ -1,5 +1,5 @@
 # Use a base image with Python pre-installed
-FROM python:3.12-slim-bookworm
+FROM python:3.13-slim-bookworm
 
 # Add non root user
 RUN adduser openhopehack
